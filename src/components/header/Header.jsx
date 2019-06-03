@@ -29,7 +29,7 @@ function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            ALOJAMIENTOS ARQ. DE SOFTWARE PROJECT
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

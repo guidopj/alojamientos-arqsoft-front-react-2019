@@ -1,9 +1,16 @@
 import React from 'react';
 import Header from '../header/Header'
+import AccommodationForm from '../form/AccommodationForm'
+import Footer from '../footer/Footer'
 
 const Home = () => {
     return (
-        <Header/>
+        <div>
+            <Header />
+            <AccommodationForm />
+            {//<Footer/>
+            }
+        </div>
     )
 }
 
