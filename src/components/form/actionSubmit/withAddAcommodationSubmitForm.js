@@ -1,5 +1,5 @@
 import { withHandlers } from "recompose";
-import axios from "axios";
+import services from "../../../services"
 
 const clearFields = ({
   province,
@@ -27,7 +27,9 @@ const handleSubmit = ({
     return;
   }
 
-  const data = {
+  console.log("fdsfds")
+
+  const acc = {
     province: province.value,
     state: state.value,
     address: address.value,
@@ -35,12 +37,13 @@ const handleSubmit = ({
     category: category.value 
   };
 
-  axios.post('http://127.0.0.1:8000/alojamiento/crearAlojamiento', data);
+  services.createAccommodation(acc)
 };
 
 const withSubmitForm = withHandlers({
   onSubmit: (props) => () => handleSubmit(props),
   clearFields: (props) => clearFields(props)
 });
+
 
 export default withSubmitForm;

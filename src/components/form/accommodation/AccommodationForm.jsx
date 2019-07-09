@@ -2,9 +2,9 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import GenericSelect from '../genericSelect/GenericSelect'
+import GenericSelect from '../../genericSelect/GenericSelect'
 import { withStyles } from '@material-ui/core/styles'
-import withFormLogic from "./withFormLogic";
+import withAddAcommodationFormLogic from "./withAddAcommodationFormLogic";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -140,4 +140,4 @@ const AccommodationForm = ({
         </Card>
     );
 
-export default withFormLogic(withStyles(styles)(AccommodationForm));
+export default withAddAcommodationFormLogic(withStyles(styles)(AccommodationForm));
