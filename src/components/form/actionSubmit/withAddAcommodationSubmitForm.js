@@ -1,5 +1,5 @@
-import { withHandlers } from "recompose";
-import services from "../../../services"
+import { withHandlers } from "recompose"
+import {API} from "../../../services"
 
 const clearFields = ({
   province,
@@ -23,21 +23,21 @@ const handleSubmit = ({
   type,
   category
 }) => {
-  if (!province || !state || !address || !type || !category) {
+  if (!province.value || !state.value || !address.value || !type.value || !category.value) {
     return;
   }
 
-  console.log("fdsfds")
+  
 
   const acc = {
-    province: province.value,
+    town: province.value,
     state: state.value,
     address: address.value,
-    type: type.value,
+    type_code: type.value,
     category: category.value 
   };
 
-  services.createAccommodation(acc)
+  API.createAccommodation(acc)
 };
 
 const withSubmitForm = withHandlers({

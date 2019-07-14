@@ -48,12 +48,14 @@ const AccommodationForm = ({
     clearFields,
     onSubmit
  }) => (
+    <div className={classes.root}>
+    
         <Card>
             <CardHeader
                 title="Cargar Alojamiento"
             />
             <CardContent>
-                <div className={classes.root}>
+                
                     <Grid container>
                         <Grid item xs={4}>
                             <GenericSelect 
@@ -114,7 +116,6 @@ const AccommodationForm = ({
                             />
                         </Grid>
                     </Grid>
-                </div>
             </CardContent>
             <CardActions >
                 <Grid container justify="flex-start" spacing={4}>
@@ -122,7 +123,7 @@ const AccommodationForm = ({
                         <Button 
                             variant="contained"
                             className={classes.button}
-                            onClick={() => onSubmit}
+                            onClick={onSubmit}
                         >
                             Crear Alojamiento
                         </Button>
@@ -138,6 +139,7 @@ const AccommodationForm = ({
                 </Grid>
             </CardActions>
         </Card>
+        </div>
     );
 
 export default withAddAcommodationFormLogic(withStyles(styles)(AccommodationForm));

@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../header/Header'
 import AccommodationForm from '../form/accommodation/AccommodationForm'
 
 const Home = () => {
     return (
+        console.log("fds"),
         <div>
-            <Header />
+            
             <AccommodationForm />
         </div>
     )

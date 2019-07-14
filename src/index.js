@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom'
-import Home from './components/home/Home'
-import Login from './components/form/login/LoginForm'
+import { Route,Switch } from 'react-router'
+import { Provider } from 'react-redux';
+import intialGlobalState from './reducers/intialGlobalState';
+import Header from './components/header/Header'
 import './index.css';
-const routing = (
-  <BrowserRouter>
-    <div>
-      <Route path="/" component={Home} />
-    </div>
-  </BrowserRouter>
-)
+import configureStore from './store';
+import indexRoutes from "./routes/index";
+import { ConnectedRouter } from 'react-router-redux'
 
-ReactDOM.render(routing, document.getElementById('root'))
+const store = configureStore(intialGlobalState);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Header/>
+    <ConnectedRouter>
+      <Switch>
+        {indexRoutes.map((prop, key) => {
+          return <Route path={prop.path} component={prop.component} key={key} />;
+        })}
+      </Switch>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('root')
+);
