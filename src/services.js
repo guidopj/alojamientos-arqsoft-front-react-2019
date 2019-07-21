@@ -22,6 +22,13 @@ export const API = {
     },
 
     async register(data) {
-        return axios.post(`${baseURL}/accounts/register`, data);
+        console.log(data)
+        return axios.post(`${baseURL}/accounts/register`, 
+            {
+                username: data.username.value,
+                password1: data.password.value,
+                password2: data.confirm_password.value
+            }
+        );
     }
 }

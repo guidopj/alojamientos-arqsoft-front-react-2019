@@ -1,16 +1,14 @@
 import { withHandlers } from "recompose";
 import {API} from "../../../services"
 
-const handleSubmit = (props) => {
-    console.log("PEPITO")
-    console.log(props)
-    //API.register(props)
+const handleRegister = (props) => {
+    API.register(props)
   }
 
   const withSubmitForm = withHandlers({
-    onRegister: props => e => {
-      
-      handleSubmit(props);
+    onRegister: props => event => {
+      event.preventDefault();
+      handleRegister(props);
     }
   });
   

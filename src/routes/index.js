@@ -4,7 +4,7 @@ import Register from "../components/form/register/RegisterForm";
 
 
 const indexRoutes = [
-    { path: "/", component: Home },
+    { path: "/", component:  Home  },
     { path: "/login", component: Login },
     { path: "/register", component: Register },
 ];

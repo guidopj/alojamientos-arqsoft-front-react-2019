@@ -18,7 +18,7 @@ const Register = ({
     onChangePassword,
     onChangeConfirmPassword,
     onRegister}) => (
-    <Grid container>
+    <Grid container direction="column" justify="center" alignItems="center">
         <Grid item xs={4}>
             <TextField
                 required

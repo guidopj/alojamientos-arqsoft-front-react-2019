@@ -6,44 +6,48 @@ import { withStyles } from '@material-ui/core/styles'
 import withLoginFormLogic from "./withLoginFormLogic";
 
 const styles = theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  });
+
+
+const Login = ({classes,username,password,onChangeUsername,onChangePassword,onSubmit}) => {
     
-})
-
-
-const Login = ({username,password,onChangeUsername,onChangePassword,onSubmit}) => (
-    <Grid container>
-        <Grid item xs={4}>
-            <TextField
-                required
-                id="user_id"
-                label="Username"
-                name="userName"
-                margin="normal"
-                value={username.value}
-                onChange={onChangeUsername}
-            />
+    return (
+        <Grid container direction="column" justify="center" alignItems="center">
+            <Grid item xs={4}>
+                <TextField
+                    required
+                    id="user_id"
+                    label="Username"
+                    name="userName"
+                    margin="normal"
+                    value={username.value}
+                    onChange={onChangeUsername}
+                />
+            </Grid>
+            <Grid item xs={4}>
+                <TextField
+                    required
+                    id="password_id"
+                    label="Password"
+                    name="password"
+                    type="password"
+                    margin="normal"
+                    value={password.value}
+                    onChange={onChangePassword}
+                />
+            </Grid>
+            <Grid item>
+                <Button variant="contained" color="primary" className={classes.button}
+                    onClick={onSubmit}
+                >
+                    Login
+                </Button>
+            </Grid>
         </Grid>
-        <Grid item xs={4}>
-            <TextField
-                required
-                id="password_id"
-                label="password"
-                name="password"
-                type="password"
-                margin="normal"
-                value={password.value}
-                onChange={onChangePassword}
-            />
-        </Grid>
-        <Grid item>
-            <Button 
-                variant="contained"        
-                onClick={() => onSubmit}
-            >
-                Login
-            </Button>
-        </Grid>
-    </Grid>
     );
+}
 
 export default withLoginFormLogic(withStyles(styles)(Login));

@@ -2,15 +2,11 @@ import { withHandlers } from "recompose";
 import services from "../../../services"
 
 const handleSubmit = (props) => {
-    console.log(props);
-    //services.login(data)
+    services.login(props.username,props.password)
   }
 
   const withSubmitForm = withHandlers({
-    onSubmit: props => e => {
-      e.preventDefault();
-      handleSubmit(props);
-    }
+    onSubmit: (props) => () => handleSubmit(props),
   });
   
   export default withSubmitForm;
