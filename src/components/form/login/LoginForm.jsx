@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles'
 import withLoginFormLogic from "./withLoginFormLogic";
+import { withSnackbar } from 'notistack';
 
 const styles = theme => ({
     button: {
@@ -50,4 +51,7 @@ const Login = ({classes,username,password,onChangeUsername,onChangePassword,onSu
     );
 }
 
-export default withLoginFormLogic(withStyles(styles)(Login));
+
+const LoginWithSnackbar = withSnackbar(Login);
+
+export default withLoginFormLogic(withStyles(styles)(LoginWithSnackbar));

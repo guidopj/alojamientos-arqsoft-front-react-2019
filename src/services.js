@@ -13,16 +13,14 @@ export const API = {
         return axios.post(`${baseURL}/accommodations/create_accommodation`, acc);
     },
 
-    async login(data) {
-        return axios.post(`${baseURL}/accounts/login`, data).then(response => {
-            console.log(response)
-        }).catch(e => {
-            console.log(e);
-        });
+    async login(username,password) {
+        return axios.post(`${baseURL}/accounts/login`, {
+            username: username.value,
+            password: password.value,
+        })
     },
 
     async register(data) {
-        console.log(data)
         return axios.post(`${baseURL}/accounts/register`, 
             {
                 username: data.username.value,
